@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.npm/
+
+# Builds / caches
+dist/
+build/
+coverage/
+*.tsbuildinfo
+.cache/
+.next/
+.vite/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Prisma/SQLite (dev)
+prisma/dev.db
+prisma/dev.db-journal
+prisma/migrations/*/README.md
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Testing artifacts
+junit.xml
+coverage-final.json
+
+# Misc
+*.local
+# --- DB files (catch all) ---
+prisma/**/dev.db
+prisma/**/dev.db-journal

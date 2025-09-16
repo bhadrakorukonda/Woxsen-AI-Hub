@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+}
+
+model Category {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String?
+  tools       Tool[]
+}
+
+model Tool {
+  id          Int       @id @default(autoincrement())
+  name        String
+  description String?
+  url         String
+  featured    Boolean   @default(false)
+  categoryId  Int
+  category    Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+} 
